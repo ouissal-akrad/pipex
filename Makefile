@@ -1,17 +1,14 @@
-NAME = pipex.a
+NAME = pipex
 
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = 	parssing.c\
-		pipex_utils.c\
+		main.c \
+		pipex.c\
 
 LIBFT = libft/libft.a
 
-PRINTF = printf/libftprintf.a
-
-PATH_LIBFT = /Users/ouakrad/Desktop/cursus/pipex/libft
-
-PATH_PRINTF = /Users/ouakrad/Desktop/cursus/pipex/printf
+PATH_LIBFT = libft
 
 OBJ = $(SRC:.c=.o)
 
@@ -20,26 +17,20 @@ INCLUDES = pipex.h
 all: $(NAME)
 
 ${LIBFT}	:
-				make -C ${PATH_LIBFT}
+	make -C ${PATH_LIBFT}
 
-${PRINTF}	:
-				make -C ${PATH_PRINTF}
-
-%.o : %.c $(INCLUDES) ${LIBFT}${PRINTF}
+%.o : %.c $(INCLUDES) ${LIBFT}
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) ${LIBFT} ${PRINTF}
-	$(AR) rcs $(NAME) $(OBJ) $(LIBFT) ${PRINTF}
+$(NAME): $(OBJ) ${LIBFT}
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 
 clean:
 	$(RM) $(OBJ)
 	make clean -C ${PATH_LIBFT}
-	make clean -C ${PATH_PRINTF}
 
 fclean: clean
 	$(RM) $(NAME)
 	make fclean -C ${PATH_LIBFT}
-	make fclean -C ${PATH_PRINTF}
 
 re: fclean all
-

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:43:03 by ouakrad           #+#    #+#             */
-/*   Updated: 2022/10/29 11:39:55 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:56:33 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlen(const char *str);
 int		ft_toupper( int character );
 int		ft_tolower( int character );
 int		ft_atoi(const char *str);
-char	*ft_strchr(const char *str, int c);
+char	*ft_strchr( char *str, int c);
 char	*ft_strrchr( const char *str, int c );
 int		ft_strncmp( const char *s1, const char *s2, size_t n );
 char	*ft_strnstr(const char *s, const char *to_find, size_t n);
