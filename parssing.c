@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:54:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/01/12 23:55:56 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:50:53 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ char	*join_path(char *path, char *cmd)
 		free(new_path);
 	}
 	free_leaks(paths);
-	return (NULL);
+	write(2,"command not found\n",18);
+	exit(0);
 }
 
 char	*find_path(char *cmd, char *envp[])
@@ -61,5 +62,6 @@ char	*find_path(char *cmd, char *envp[])
 			return (join_path(envp[i] + 5, cmd));
 		}
 	}
-	return (NULL);
+	write(2,"command not found\n",18);
+	exit(0);
 }

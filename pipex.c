@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:34:23 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/01/13 20:37:10 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:56:29 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void	pipex(char *av[], char **env)
 	int	id;
 	int	pid;
 
-	pipe(pfd);
+	if (pipe(pfd) == -1)
+		return (perror("pipe: "));
 	id = fork();
 	if (id < 0)
 		return (perror("Fork: "));

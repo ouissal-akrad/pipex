@@ -20,10 +20,10 @@ ${LIBFT}	:
 	make -C ${PATH_LIBFT}
 
 %.o : %.c $(INCLUDES) ${LIBFT}
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -g -c $< -o $@
 
 $(NAME): $(OBJ) ${LIBFT}
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) -g -o $(NAME) $(OBJ) $(LIBFT)
 
 clean:
 	$(RM) $(OBJ)
